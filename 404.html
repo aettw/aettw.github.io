@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Ashraf Elkazzaz Takeef & Tbreed Works</title>
+    <link rel="icon" href="logo-rbg-p.png">
+    <link rel="shortcut icon" href="logo-rbg-p.png">
+
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <script>
+        var isNS = (navigator.appName == "PN") ? 1 : 0;
+        if(navigator.appName == "PN") document.captureEvents(Event.MOUSEDOWN||Event.MOUSEUP);
+        function mischandler(){
+        return false;
+        }
+        function mousehandler(e){
+        var myevent = (isNS) ? e : event;
+        var eventbutton = (isNS) ? myevent.which : myevent.button;
+        if((eventbutton==2)||(eventbutton==3)) return false;
+        }
+        document.oncontextmenu = mischandler;
+        document.onmousedown = mousehandler;
+        document.onmouseup = mousehandler;
+        </script>
+
+</head>
+
+<body>
+
+    
+
+        <section class="contact-section section-padding pt-0">
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-lg-8 col-12 mx-auto">
+                        <div class="section-title-wrap mb-5">
+                            <h4 class="section-title"> Get in touch</h4>
+                        </div>
+
+                        <form id="submit-form" action="" method="" class="custom-form contact-form" role="form">
+                            <div class="row">
+                                <div class="col-lg-6 col-md-6 col-12">
+                                    <div class="form-floating">
+                                        <input type="text" name="full-name" id="full-name" class="form-control"
+                                            placeholder="Full Name" required="">
+
+                                        <label for="floatingInput">Full Name</label>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-6 col-md-6 col-12">
+                                    <div class="form-floating">
+                                        <input type="email" name="email" id="email" pattern="[^ @]*@[^ @]*"
+                                            class="form-control" placeholder="Email address" required="">
+
+                                        <label for="floatingInput">Email address</label>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-12 col-12">
+                                    <div class="form-floating">
+                                        <input type="number" name="company" id="name" class="form-control"
+                                            placeholder="Name" required="">
+
+                                        <label for="floatingInput">Phone Number</label>
+                                    </div>
+
+                                    <div class="form-floating">
+                                        <textarea class="form-control" id="message" name="message"
+                                            placeholder="Describe message here"></textarea>
+
+                                        <label for="floatingTextarea">Describe message here</label>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-4 col-12 ms-auto">
+                                    <button type="submit" class="form-control">Submit</button>
+                                </div>
+
+                            </div>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        $("#submit-form").submit((e)=>{
+        e.preventDefault()
+        $.ajax({
+        url:"https://script.google.com/macros/s/AKfycby8mp76A35Jg-xV2xQwvmohuqlhlFgu3QBe8FYod4NsWkhqBKkHOqQywXyy5nDpH8CRnQ/exec",
+        data:$("#submit-form").serialize(),
+        method:"post",
+        success:function (response){
+        alert("One of our team will be in contact with you shortly. Thank you!")
+        window.location.reload()
+        //window.location.href="https://google.com"
+        },
+        error:function (err){
+        alert("Something Error")
+        
+        }
+        })
+        })
+        </script>
+
+<img src="logo-rbg-p.png">
+
+</body>
+
+</html>
